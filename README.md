@@ -10,9 +10,34 @@ Shanghai Jiao Tong University, Shanghai 200240, People’s Republic of China
 The pipeline of the proposed segmentation framework is shown in Figure below.  
 We adopt nnUNet as the basic network models for IAN segmentation.   
 Self-training method is adopted for semi-supervised semantic segmentation.  
-In addition, a connectivity-based selective re-training strategy is designed to screen more plausible pseudo-labels.   
+In addition, a connectivity-based selective re-training strategy is designed to screen more plausible pseudo-labels.  
+
 ![](framework.JPG)
 
 ## Environments and Requirements:
-### 1. Install and deploy nnUNet
-
+### 1. nnUNet Configuration
+Install nnU-Net as below.
+You should meet the requirements of nnUNet, our method does not need any additional requirements.  
+For more details, please refer to https://github.com/MIC-DKFZ/nnUNet  
+```
+git clone https://github.com/MIC-DKFZ/nnUNet.git
+cd nnUNet
+pip install -e .
+```
+### 2. Pipeline of the Proposed Framework
+#### 2.1. Dataset Load and Reconstruction
+Load ToothFairy Dataset from https://ditto.ing.unimore.it/toothfairy/
+```
+python process/data_read.py
+├── img
+├── DenseMask
+└── SparseMask
+```
+Filter out densely-labeled data with more than 2 connected domains.  
+```
+python process/Check_Component.py
+```
+Filter out the data with DSC lower than 0.85 (if you have trained the model using original dataset and have the weight) , and only select the data with definite boundaries.
+```
+python process/select_fineGT_series.py
+```
