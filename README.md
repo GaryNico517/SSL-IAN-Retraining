@@ -82,3 +82,15 @@ Finally, save the docker images if needed.
 ```
 docker save -o fairy_docker_v0.tar.xz fairy_docker:v0
 ```
+## Citations (Updating)
+If you find this repository useful, please consider citing our paper:  
+```
+@misc{liu2023inferior,
+      title={Inferior Alveolar Nerve Segmentation in CBCT images using Connectivity-Based Selective Re-training}, 
+      author={Yusheng Liu and Rui Xin and Tao Yang and Lisheng Wang},
+      year={2023},
+      eprint={2308.09298},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
