@@ -12,7 +12,7 @@ We adopt nnUNet as the basic network models for IAN segmentation.
 Self-training method is adopted for semi-supervised semantic segmentation.  
 In addition, a connectivity-based selective re-training strategy is designed to screen more plausible pseudo-labels.  
 
-![](framework.JPG)
+![](framework_new.JPG)
 
 ## Environments and Requirements:
 ### 1. nnUNet Configuration
